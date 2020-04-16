@@ -119,6 +119,10 @@ impl Table {
     pub fn iter(&self) -> Iter<'_> {
         Box::new(self.items.iter().map(|(key, kv)| (&key[..], &kv.value)))
     }
+    
+    pub fn new_iter(&self) -> Iter<'_> {
+        Box::new(self.items.iter().map(|(key, kv)| (&kv.key, &kv.value)))
+    }
 
     /// Removes an item given the key.
     pub fn remove(&mut self, key: &str) -> Option<Item> {
