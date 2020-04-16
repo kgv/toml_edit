@@ -120,7 +120,7 @@ impl Table {
         Box::new(self.items.iter().map(|(key, kv)| (&key[..], &kv.value)))
     }
     
-    pub fn new_iter(&self) -> Iter<'_> {
+    pub fn new_iter(&self) -> impl Iterator<Item = (&Repr, &Item)> {
         Box::new(self.items.iter().map(|(key, kv)| (&kv.key, &kv.value)))
     }
 
